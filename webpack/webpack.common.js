@@ -1,7 +1,7 @@
 // webpack 两种mode打包时的不同之处
 // mode development production none
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
 
 module.exports = {
@@ -52,6 +52,7 @@ module.exports = {
     ]
   },
   plugins: [
+    // 在使用这个之后 无需再配置dev环境下的contentBase
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html'),
       // 打包之后的文件名
@@ -68,7 +69,6 @@ module.exports = {
       }
       // 是否加上hash，默认是false
       // hash: true
-    }),
-    new CleanWebpackPlugin()
+    })
   ]
 }
