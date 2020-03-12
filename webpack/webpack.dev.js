@@ -5,7 +5,7 @@ const path = require('path')
 module.exports = merge(common, {
   devServer: {
     // ！！！开发环境需要指定目录，devServer会在该目录下寻找不属于webpack打包的静态资源。另外如果使用了html-webpack-plugin,则不用再配置。另外copy-webpack-plugin的使用待研究
-    contentBase: path.resolve(__dirname, '../public'),
+    contentBase: path.resolve(__dirname, '../'),
     // dev服务的挂载目录  优先级低于output中的publicPath 而且如果output也设置了publicPath 该处会自动使用
     publicPath: '/',
     quiet: false, //默认不启用 启用之后，终端不再输出错误信息
