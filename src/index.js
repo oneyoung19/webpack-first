@@ -1,6 +1,8 @@
 import './css/index.css'
 import './css/reset.css'
-import image from './img/cat.jpeg'
+import image from '@/img/cat.jpeg'
+import fn from 'component.js'
+fn()
 // 将url-loader中的esModule设置为false,即可使用require语句导入图片
 // const image = require('../static/img/cat.jpeg')
 

@@ -112,5 +112,15 @@ module.exports = {
     }),
     // 抽离出来的css文件内容默认是没有压缩的。为了压缩可以使用optimize-css-assets-webpack-plugin。另外开发环境无需压缩，所以这部分移到prod.js中
     // new OptimizeCssAssetsWebpackPlugin()
-  ]
+  ],
+  resolve: {
+    // 默认情况下，导入语句只会在node_modules里寻找。可通过配置该选项增加默认的寻找文件，（从左至右）：
+    modules: [path.resolve(__dirname, '../src/components'), 'node_modules'],
+    // 别名
+    alias: {
+      '@': path.resolve(__dirname, '../src')
+    },
+    // 自动解析扩展名 （从左至右）
+    extensions: ['.vue', '.js', '.json',]
+  }
 }
