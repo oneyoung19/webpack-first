@@ -23,7 +23,7 @@ ele.className = 'title'
 ele.innerText = 'hello Webpack'
 div.appendChild(ele)
 // 1-3 图片
-console.log(image)
+// console.log(image)
 const img = new Image()
 img.onload = () => {
   

@@ -2,6 +2,7 @@
 // mode development production none
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require('path')
 
 module.exports = {
@@ -69,6 +70,19 @@ module.exports = {
       }
       // 是否加上hash，默认是false
       // hash: true
-    })
+    }),
+    // devServer的contentBase默认是在根目录下。copy-webpack-plugin这个插件最好先设置在webpack.base.js中，虽然现在看起来prod环境更有用
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: path.resolve(__dirname, '../dist/static'),
+        // 设置flatten后，拷贝时不会拷贝目录，只会拷贝文件 譬如 static/js/console.js => static/console.js
+        // flatten: true
+      },
+      {
+        from: path.resolve(__dirname, '../favicon.ico'),
+        to: 'favicon.ico'
+      }
+    ])
   ]
 }

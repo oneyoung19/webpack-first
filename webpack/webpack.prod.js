@@ -7,6 +7,6 @@ module.exports = merge(common, {
   plugins: [
     // dev打包时无需清理dist，所以在prod.js中设置
     new CleanWebpackPlugin()
-    // dev环境下也有html-webpack-plugin 貌似会自动寻找静态资源
+    // dev环境下也有html-webpack-plugin 貌似会自动寻找静态资源 所以本来打算不使用copy-webpack-plugin 但发现在dev设置publicPath之后，
   ]
 })
