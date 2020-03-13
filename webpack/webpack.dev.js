@@ -1,5 +1,6 @@
 const common = require('./webpack.common')
 const merge = require('webpack-merge')
+const webpack = require('webpack')
 const path = require('path')
 
 module.exports = merge(common, {
@@ -52,5 +53,8 @@ module.exports = merge(common, {
   hidden-source-map 部分源代码
   nosources-source-map 
   */ 
-  devtool: 'cheap-module-eval-source-map'
+  devtool: 'cheap-module-eval-source-map',
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 })
