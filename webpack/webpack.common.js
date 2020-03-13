@@ -13,7 +13,9 @@ module.exports = {
   entry: path.resolve(__dirname, '../src/index.js'),
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'bundle.[hash:6].js'
+    filename: 'bundle.[hash:6].js',
+    // 这里的chunkFilename用来定义除了主bundle以外的bundle名。这些bundle可以在代码分割以及动态导入中产生。
+    chunkFilename: '[name].[hash:6].js'
   },
   module: {
     rules: [

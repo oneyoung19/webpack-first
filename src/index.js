@@ -34,6 +34,18 @@ img.height = "200"
 img.src = image
 div.appendChild(img)
 
+// 1-3 按钮
+const btn = document.createElement('button')
+// 为什么不安装@babel/plugin-syntax-dynamic-import,不在babelrc中配置它。就可以使用import()语法？甚至结合async和await。
+btn.addEventListener('click', async () => {
+  // import('./handle').then(({ default: res }) => {
+  //   console.log(res.fn())
+  // })
+  const { default: res } = await import('./handle')
+  console.log(res.fn())
+})
+btn.innerText = 'click'
+div.appendChild(btn)
 
 
 document.body.appendChild(div)
