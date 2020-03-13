@@ -1,6 +1,6 @@
-import '../static/css/index.css'
-import '../static/css/reset.css'
-import image from '../static/img/cat.jpeg'
+import './css/index.css'
+import './css/reset.css'
+import image from './img/cat.jpeg'
 // 将url-loader中的esModule设置为false,即可使用require语句导入图片
 // const image = require('../static/img/cat.jpeg')
 // 1-1
@@ -20,7 +20,7 @@ console.log(name)
 const div = document.createElement('div')
 // 1-2 css
 const ele = document.createElement('p')
-ele.className = 'title'
+ele.className = 'title reset'
 ele.innerText = 'hello Webpack'
 div.appendChild(ele)
 // 1-3 图片
