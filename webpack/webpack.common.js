@@ -23,7 +23,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         use: ['babel-loader'],
-        exclude: /node_modules/
+        exclude: path.resolve(__dirname, '../node_modules')
       },
       /*
       css
@@ -48,7 +48,8 @@ module.exports = {
           {
             loader: 'css-loader'
           }
-        ]
+        ],
+        exclude: path.resolve(__dirname, '../node_modules')
       },
       // 图片 字体文件
       // 可以使用url-loader或者file-loader 优先使用url-loader 因为url-loader可以设置在文件大小小于指定的某值时，返回dataUrl

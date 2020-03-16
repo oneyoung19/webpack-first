@@ -3,7 +3,11 @@ const merge = require('webpack-merge')
 const webpack = require('webpack')
 const path = require('path')
 
-module.exports = merge(common, {
+// 测量各个loader与插件所耗费的时间
+const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin')
+const smwp = new SpeedMeasureWebpackPlugin()
+
+module.exports = smwp.wrap(merge(common, {
   devServer: {
     // ！！！开发环境需要指定目录，devServer会在该目录下寻找不属于webpack打包的静态资源。另外如果使用了html-webpack-plugin,则不用再配置。另外copy-webpack-plugin的使用待研究  contentBase会影响寻找不由webpack打包的静态资源，无论是否使用html-webpack-plugin
     // contentBase: path.resolve(__dirname, '../public'),
@@ -65,4 +69,4 @@ module.exports = merge(common, {
       ENV: JSON.stringify('dev')
     })
   ],
-})
+}))
