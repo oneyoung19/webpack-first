@@ -28,8 +28,8 @@ console.log(name)
 const div = document.createElement('div')
 // 1-2 css
 const ele = document.createElement('p')
-ele.className = 'title reset'
-ele.innerText = 'hello Webpack df'
+ele.className = `title reset`
+ele.innerText = `hello Webpack ${ENV}`
 div.appendChild(ele)
 // 1-3 图片
 // console.log(image)

@@ -55,6 +55,11 @@ module.exports = merge(common, {
   */ 
   devtool: 'cheap-module-eval-source-map',
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    // 定义dev环境下的全局环境变量
+    // DefinePlugin 字符串=>变量 JSON.stringfy('')=>字符串 对象=>对象 布尔值=>布尔值 
+    new webpack.DefinePlugin({
+      ENV: JSON.stringify('dev')
+    })
   ]
 })
