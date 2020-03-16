@@ -28,13 +28,16 @@ module.exports = merge(common, {
     port: '3000',
     // 模块热加载
     hot: true,
-    // 代理
+    // 开发环境代理
     proxy: {
-      "/api": {
-        target: 'http://localhost:8080',
+      '/api': {
+        target: 'http://localhost:4000/',
+        // 重写路径
         pathRewrite: {
-          "^/api": ""
-        }
+          "^/api": "/"
+        },
+        // 如果target是域名需要额外添加一个参数changeOrigin: true，否则会代理失败
+        changeOrigin: true
       }
     },
     // 将运行进度输出到终端 官网说只用于命令行工具 --progress 但是试了下 在这里配置也是成功的
@@ -61,5 +64,5 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       ENV: JSON.stringify('dev')
     })
-  ]
+  ],
 })

@@ -2,6 +2,7 @@ import './css/index.css'
 import './css/reset.css'
 import image from '@/img/cat.jpeg'
 import fn from 'component.js'
+import axios from 'axios'
 fn()
 // 将url-loader中的esModule设置为false,即可使用require语句导入图片
 // const image = require('../static/img/cat.jpeg')
@@ -55,10 +56,26 @@ btn.addEventListener('click', async () => {
 btn.innerText = 'click'
 div.appendChild(btn)
 
-// 1-4 输入框
+// 1-4 输入框 热更新
 const input = document.createElement('input')
 input.setAttribute('type', 'text')
 div.appendChild(input)
+
+// 1-5 代理
+axios({
+  method: 'get',
+  url: '/api/user'
+}).then(res => {
+  console.log(res)
+}).catch(err => {
+  console.error(err)
+})
+//需要将 localhost:3000 转发到 localhost:4000（服务端） 端口
+// fetch("/api/user")
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+//   .catch(err => console.log(err))
+
 
 
 document.body.appendChild(div)
